@@ -14,8 +14,11 @@ class Trabajo extends Model
    
     'tipotrabajoId',
     'DescripcionLarga',
+    'DescripcionCorta',
     'Imagen',
-    'Audio'
+    'Audio',
+    'Cliente',
+    'Fecha'
     ];
     protected $guarded=[
     

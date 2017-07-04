@@ -12,3 +12,5 @@
 */
 
 Route::get('/','HomeController@index');
+Route::resource('/publicidad', 'PublicidadController');
+Route::resource('/tipoTrabajos', 'TipoTrabajoController');

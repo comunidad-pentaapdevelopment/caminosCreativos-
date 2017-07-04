@@ -8,7 +8,7 @@ class Publicidad extends Model
 {
     protected $table='publicidades';
     protected $primayKey='Id';
-    public $timestamps=true;
+    public $timestamps=false;
 
     protected $fillable=[
     'Descripcion',

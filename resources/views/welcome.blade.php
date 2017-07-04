@@ -55,13 +55,10 @@
                         <a href="#portfolio">Trabajos</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">Acerca De</a>
+                        <a href="#about">¿Quienes Somos?</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#">¿Quienes Somos?</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contacto</a>
+                        <a href="#contact">Contactanos</a>
                     </li>
                 </ul>
             </div>
@@ -192,34 +189,27 @@
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place
-                            <br>Beverly Hills, CA 90210</p>
+                    <div class="footer-col col-md-6">
+                        <h3>Direccion</h3>
+                        <p>Mendoza 200
+                            <br>San Miguel De Tucuman, Tucuman</p>
                     </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
+                    <div class="footer-col col-md-6">
+                        <h3>Encontranos en la Web</h3>
                         <ul class="list-inline">
                             <li>
                                 <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Instagram</span><i class="fa fa-fw fa-instagram"></i></a>
                             </li>
                             <li>
                                 <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Youtube</span><i class="fa fa-fw fa-youtube"></i></a>
                             </li>
                         </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
                     </div>
                 </div>
             </div>
@@ -228,7 +218,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2016
+                        Pentapp-Development
                     </div>
                 </div>
             </div>
@@ -258,7 +248,7 @@
                         <div class="modal-body">
                         @foreach($tipot as $tipotrabajo)
                             @if($tipotrabajo->Id==$trabajo->tipotrabajoId)
-                            <h2> {{$tipotrabajo->Descripcion}}</h2>
+                            <h2> {{$tipotrabajo->Descripcion}} - {{$trabajo->DescripcionCorta}}</h2>
                             @endif
                             @endforeach
                             <hr class="star-primary">
@@ -268,19 +258,14 @@
                             <audio src="{{asset('mp3/'.$trabajo->Audio)}}" controls controlsList="nodownload" type="audio/mpeg" preload="preload">
                             </audio>
                             <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                <li>Cliente:
+                                    <strong><p>{{$trabajo->Cliente}}</p>
                                     </strong>
                                 </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                <li>Fecha:
+                                    <strong><p>{{$trabajo->Fecha}}</p>
                                     </strong>
                                 </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-
                             </ul>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>

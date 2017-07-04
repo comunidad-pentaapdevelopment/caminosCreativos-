@@ -8,10 +8,11 @@ class TipoTrabajo extends Model
 {
      protected $table='tipotrabajos';
     protected $primayKey='Id';
-    public $timestamps=true;
+    public $timestamps=false;
 
     protected $fillable=[
     'Descripcion',
+    'Estado'
     
     ];
     protected $guarded=[
