@@ -1,45 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<body>
-  <div class="login">
-  <header class="header">
-    <span class="text">LOGIN</span>
-    <span class="loader"></span>
-  </header>
-  <form class="form" method="POST" action="{{ url('/login') }}">
-                        {{ csrf_field() }}
+ @section('content')
+   <form class="form" method="post" action="{{ url('/login') }}">
+   {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="input" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
+    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+      <p class="field">
+        <input id="email" type="email"name="email" placeholder="Email" value="{{ old('email') }}" required/>
+        @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="input" name="password">
-
-                                @if ($errors->has('password'))
+      </p>
+      </div>
+      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+      <p class="field">
+        <input id="password"type="password" name="password" placeholder="Password" required/>
+        @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+      </p>
+    </div>
+      <p class="submit"><input type="submit" name="sent" value="Login"></p>
 
-                         <button class="btn" type="submit"></button>
-                      
-                        </div>
-                    </form>
+
+    </form>
+  </div> <!--/ Login-->
 @endsection
