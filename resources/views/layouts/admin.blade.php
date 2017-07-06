@@ -31,7 +31,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>AD</b>V</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>ADVentas</b></span>
+          <span class="logo-lg"><b>Caminos Creativos</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -49,7 +49,7 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <small class="bg-red">Online</small>
-                  <span class="hidden-xs">Juan Carlos Arcila Díaz</span>
+                  <span class="hidden-xs">Bernabe Campagna</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -87,38 +87,18 @@
             <li class="header"></li>
             
             <li class="treeview">
-              <a href="tipoTrabajos">
-                <i class="fa fa-laptop"></i>
-                <span>TipoTrabajo</span>
-                <i class="fa fa-circle-o"></i>
-              </a>
-            </li>
-            
-            
-                       
-            <li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i> <span>Acceso</span>
+                <i class="fa fa-laptop"></i>
+                <span>ABM</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                
+                <li><a href="tipoTrabajos"><i class="fa fa-circle-o"></i> Tipo de Trabajos</a></li>
+                <li><a href="publicidad"><i class="fa fa-circle-o"></i> Publiciades</a></li>
               </ul>
             </li>
-             <li>
-              <a href="#">
-                <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                <small class="label pull-right bg-red">PDF</small>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                <small class="label pull-right bg-yellow">IT</small>
-              </a>
-            </li>
-                        
+                       
+            
           </ul>
         </section>
         <!-- /.sidebar -->

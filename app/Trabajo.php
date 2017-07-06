@@ -8,7 +8,7 @@ class Trabajo extends Model
 {
      protected $table='trabajos';
     protected $primayKey='Id';
-    public $timestamps=true;
+    public $timestamps=false;
 
     protected $fillable=[
    

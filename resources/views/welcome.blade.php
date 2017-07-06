@@ -13,9 +13,11 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/miEstilo.css" rel="stylesheet">
 
     <!-- Theme CSS -->
     <link href="{{asset('css/freelancer.min.css')}}" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -70,6 +72,42 @@
     <!-- Header -->
         <header >
         <div class="container" id="maincontent" tabindex="-1">
+            <!-- CAROUSEL PARA PUBLICIDADES -->
+            <div id="carousel-example" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example" data-slide-to="1"></li>
+    <li data-target="#carousel-example" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="item active">
+      <a href="#"><img src="img/portfolio/radio.png" /></a>
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><img src="img/portfolio/CINE.jpg" /></a>
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><img src="img/portfolio/coca_cola_logo.gif" /></a>
+      <div class="carousel-caption">
+      </div>
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+<!-- CAROUSEL -->
+
             <div class="row">
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
