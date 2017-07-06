@@ -16,5 +16,7 @@ Route::resource('/publicidad', 'PublicidadController');
 Route::resource('/tipotrabajo', 'TipoTrabajoController');
 
 Route::auth();
-
-Route::get('/home', 'HomeController@index');
+Route::get('/log', function() {
+    return view('auth/login');
+});
+//Route::get('/home', 'HomeController@index');

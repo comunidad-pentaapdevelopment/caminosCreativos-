@@ -4,6 +4,10 @@ namespace Caminos\Http\Controllers;
 
 use Caminos\Http\Requests;
 use Illuminate\Http\Request;
+use Caminos\Trabajo;
+use Caminos\TipoTrabajo;
+use Caminos\Publicidad;
+use DB;
 
 class HomeController extends Controller
 {
@@ -14,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     /**
@@ -24,6 +28,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $trab=Trabajo::all();
+        $tipot=TipoTrabajo::all();
+        
+        return view('welcome',compact('trab','tipot'));
     }
 }
