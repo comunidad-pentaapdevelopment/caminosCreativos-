@@ -21,6 +21,7 @@
 
     <!-- Custom Fonts -->
     <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+      <link href="{{asset('css/home.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -73,31 +74,19 @@
         <header >
         <div class="container" id="maincontent" tabindex="-1">
             <!-- CAROUSEL PARA PUBLICIDADES -->
-            <div id="carousel-example" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example" data-slide-to="1"></li>
-    <li data-target="#carousel-example" data-slide-to="2"></li>
-  </ol>
-
-  <div class="carousel-inner">
-    @foreach($pub as $publicidad)
-    <div class="item active">
-      <img src="{{asset('img/portfolio/'.$publicidad->Imagen)}}" />
-      <div class="carousel-caption">
-      </div>
-    </div>
-    @endforeach
-  </div>
-
-  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
-
+                <div class="slider">
+                    <div class="container contslider">
+                    <div class="my-slider">
+                    <ul>
+                        @foreach($pub as $publicidad)
+                        <li><img src="{{asset('img/portfolio/'.$publicidad->Imagen)}}" class="img-responsive img-centered" height="100px" width="100px"></li>
+                        @endforeach
+                    </ul>
+                        
+                    </div>
+                        
+                    </div>
+                </div>
 <!-- CAROUSEL -->
 
             <div class="row">
@@ -320,6 +309,7 @@
 
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
+  
 
 </body>
 

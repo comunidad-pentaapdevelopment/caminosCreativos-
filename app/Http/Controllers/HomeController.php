@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         $trab=Trabajo::all();
         $tipot=TipoTrabajo::all();
-        $pub=Publicidad::where('Estado',1)->get();
+        $pub=Publicidad::where('Estado',0)->get();
         
         return view('welcome',compact('trab','tipot','pub'));
     }

@@ -93,8 +93,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="tipotrabajo"><i class="fa fa-circle-o"></i> Tipo de Trabajos</a></li>
-                <li><a href="publicidad"><i class="fa fa-circle-o"></i> Publiciades</a></li>
+                <li><a href="{{url('tipotrabajo')}}"><i class="fa fa-circle-o"></i> Tipo de Trabajos</a></li>
+                <li><a href="{{url('publicidad')}}"><i class="fa fa-circle-o"></i> Publiciades</a></li>
               </ul>
             </li>
                        
