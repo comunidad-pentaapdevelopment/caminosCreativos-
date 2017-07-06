@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoTrabajo extends Model
 {
      protected $table='tipotrabajos';
-    protected $primayKey='Id';
+    protected $primayKey='id';
     public $timestamps=false;
 
     protected $fillable=[

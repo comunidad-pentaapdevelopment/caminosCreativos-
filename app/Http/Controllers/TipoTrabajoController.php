@@ -1,7 +1,6 @@
 <?php
 
 namespace Caminos\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 use Caminos\Http\Requests;
@@ -38,24 +37,24 @@ class TipoTrabajoController extends Controller
     {
     	$tipotrabajo=new TipoTrabajo;
     	$tipotrabajo->Descripcion=$request->get('Descripcion');
-    	$tipotrabajo->Estado=1;
+    	$tipotrabajo->Estado='1';
 
     	$tipotrabajo->save();
-    	return Redirect::to('tipotrabajos');
+    	return Redirect::to('tipotrabajo');
 
 
     }
 
     public function show($id)
     {
-    	return view("tipoTrabajos.show",["tipoTrabajos"=>TipoTrabajo::findOrFail($id)]);
+    	return view("tipoTrabajos.show",["tipotrabajos"=>TipoTrabajo::findOrFail($id)]);
     	
     }
 
     public function edit($id)
     {
     
-    	return view("tipoTrabajos.edit",["tipoTrabajos"=>TipoTrabajo::findOrFail($id)]);
+    	return view("tipoTrabajos.edit",["tipotrabajos"=>TipoTrabajo::findOrFail($id)]);
     		
     }
 
@@ -64,7 +63,7 @@ class TipoTrabajoController extends Controller
     	$tipotrabajo=TipoTrabajo::findOrFail($id);
     	$tipotrabajo->Descripcion=$request->get('Descripcion');
     	$tipotrabajo->update();
-    return Redirect::to('tipotrabajos');
+    return Redirect::to('tipotrabajo');
     }
 
     public function destroy($id)
@@ -72,5 +71,5 @@ class TipoTrabajoController extends Controller
     	$tipotrabajo=TipoTrabajo::findOrFail($id);
     	$tipotrabajo->Estado=0;
     	$tipotrabajo->update();
-    	return Redirect::to('tipoTrabajos');
+    	return Redirect::to('tipotrabajo');
     }}

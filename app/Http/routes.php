@@ -13,4 +13,8 @@
 
 Route::get('/','HomeController@index');
 Route::resource('/publicidad', 'PublicidadController');
-Route::resource('/tipoTrabajos', 'TipoTrabajoController');
+Route::resource('/tipotrabajo', 'TipoTrabajoController');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

@@ -2,7 +2,7 @@
 @section('contenido')
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3>Listado de Tipo De Trabajos <a href="tipoTrabajos/create"><button class="btn btn-success">Nuevo</button></a></h3>
+			<h3>Listado de Tipo De Trabajos <a href="tipotrabajo/create"><button class="btn btn-success">Nuevo</button></a></h3>
 			@include('tipoTrabajos.search')
 		</div>
 	</div>
@@ -18,13 +18,13 @@
 			</thead>
 			@foreach($tipotrabajos as $tipTrab)
 			<tr>
-				<td>{{$tipTrab->Id}}</td>
+				<td>{{$tipTrab->id}}</td>
 				<td>{{$tipTrab->Descripcion}}</td>
 				<td>{{$tipTrab->Estado}}</td>
 				<td>
-					<a href="{{URL::action('TipoTrabajoController@edit',$tipTrab->Id)}}"><button class="btn btn-info">Editar</button></a>
+					<a href="{{URL::action('TipoTrabajoController@edit',$tipTrab->id)}}"><button class="btn btn-info">Editar</button></a>
 
-					<a hhref="" data-target="#modal-delete-{{$tipTrab->Id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button> 
+					<a hhref="" data-target="#modal-delete-{{$tipTrab->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button> 
 
 				</td> 
 			</tr>
