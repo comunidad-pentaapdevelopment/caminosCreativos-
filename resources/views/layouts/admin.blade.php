@@ -27,9 +27,9 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>AD</b>V</span>
+          <span class="logo-mini"><b>C</b>C</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Caminos Creativos</b></span>
         </a>
@@ -93,7 +93,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="tipoTrabajos"><i class="fa fa-circle-o"></i> Tipo de Trabajos</a></li>
+                <li><a href="tipotrabajo"><i class="fa fa-circle-o"></i> Tipo de Trabajos</a></li>
                 <li><a href="publicidad"><i class="fa fa-circle-o"></i> Publiciades</a></li>
               </ul>
             </li>
