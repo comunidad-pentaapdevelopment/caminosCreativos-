@@ -12,7 +12,8 @@ class Publicidad extends Model
 
     protected $fillable=[
     'Descripcion',
-    'Imagen'
+    'Imagen',
+    'Estado'
     ];
     protected $guarded=[
     
