@@ -13,14 +13,12 @@
 			<thead>
 				<th>Descripcion</th>
 				<th>Imagen</th>
-				<th>Estado</th>
 				<th>Opciones</th>
 			</thead>
 			@foreach($publicidades as $pub)
 			<tr>
 				<td>{{$pub->Descripcion}}</td>
 				<td>{{$pub->Imagen}}</td>
-				<td>{{$pub->Estado}}</td>
 				<td>
 					<a href="{{URL::action('PublicidadController@edit',$pub->id)}}"><button class="btn btn-info">Editar</button></a>
 

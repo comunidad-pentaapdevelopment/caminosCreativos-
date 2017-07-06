@@ -11,16 +11,12 @@
 			<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condenser table-hover">
 			<thead>
-				<th>Id</th>
 				<th>Descripcion</th>
-				<th>Estado</th>
 				<th>Opciones</th>
 			</thead>
 			@foreach($tipotrabajos as $tipTrab)
 			<tr>
-				<td>{{$tipTrab->id}}</td>
 				<td>{{$tipTrab->Descripcion}}</td>
-				<td>{{$tipTrab->Estado}}</td>
 				<td>
 					<a href="{{URL::action('TipoTrabajoController@edit',$tipTrab->id)}}"><button class="btn btn-info">Editar</button></a>
 

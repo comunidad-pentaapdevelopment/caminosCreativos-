@@ -14,6 +14,7 @@
 Route::get('/','HomeController@index');
 Route::resource('/publicidad', 'PublicidadController');
 Route::resource('/tipotrabajo', 'TipoTrabajoController');
+Route::resource('/trabajo', 'TrabajoController');
 
 Route::auth();
 Route::get('/log', function() {

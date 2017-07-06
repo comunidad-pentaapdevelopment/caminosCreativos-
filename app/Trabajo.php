@@ -18,7 +18,8 @@ class Trabajo extends Model
     'Imagen',
     'Audio',
     'Cliente',
-    'Fecha'
+    'Fecha',
+    'Estado'
     ];
     protected $guarded=[
     

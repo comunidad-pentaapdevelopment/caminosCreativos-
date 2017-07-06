@@ -20,7 +20,7 @@ class TipoTrabajoController extends Controller
     		$query=trim($request->get('searchText'));
     		$tipoTrabajos=DB::table('tipotrabajos')
     		->where('Descripcion','LIKE','%'.$query.'%')
-    		
+    		->where('Estado','=',1)
     		->orderBy('id','desc')
     		->paginate(7);
     		return view('tipoTrabajos.index',["tipotrabajos"=>$tipoTrabajos,"searchText"=>$query]);
@@ -37,7 +37,7 @@ class TipoTrabajoController extends Controller
     {
     	$tipotrabajo=new TipoTrabajo;
     	$tipotrabajo->Descripcion=$request->get('Descripcion');
-    	$tipotrabajo->Estado='1';
+    	$tipotrabajo->Estado=1;
 
     	$tipotrabajo->save();
     	return Redirect::to('tipotrabajo');
