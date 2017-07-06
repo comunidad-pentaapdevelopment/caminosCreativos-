@@ -4,9 +4,13 @@ namespace Caminos\Http\Controllers;
 
 use Caminos\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Builder;
+
 use Caminos\Trabajo;
 use Caminos\TipoTrabajo;
 use Caminos\Publicidad;
+
 use DB;
 
 class HomeController extends Controller
@@ -30,7 +34,8 @@ class HomeController extends Controller
     {
         $trab=Trabajo::all();
         $tipot=TipoTrabajo::all();
+        $pub=Publicidad::where('Estado',1)->get();
         
-        return view('welcome',compact('trab','tipot'));
+        return view('welcome',compact('trab','tipot','pub'));
     }
 }

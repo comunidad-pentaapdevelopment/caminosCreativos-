@@ -28,10 +28,10 @@ class AuthController extends Controller
      *
      * @var string
      */
-<<<<<<< HEAD
+
 
     protected $redirectTo = '/publicidad';
->>>>>>> origin/master
+
 
     /**
      * Create a new authentication controller instance.

@@ -11,7 +11,6 @@
 			<div class="table-responsive">
 			<table class="table table-striped table-bordered table-condenser table-hover">
 			<thead>
-				<th>Id</th>
 				<th>Descripcion</th>
 				<th>Imagen</th>
 				<th>Estado</th>
@@ -19,7 +18,6 @@
 			</thead>
 			@foreach($publicidades as $pub)
 			<tr>
-				<td>{{$pub->id}}</td>
 				<td>{{$pub->Descripcion}}</td>
 				<td>{{$pub->Imagen}}</td>
 				<td>{{$pub->Estado}}</td>

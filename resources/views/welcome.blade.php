@@ -81,21 +81,13 @@
   </ol>
 
   <div class="carousel-inner">
+    @foreach($pub as $publicidad)
     <div class="item active">
-      <a href="#"><img src="img/portfolio/radio.png" /></a>
+      <img src="{{asset('img/portfolio/'.$publicidad->Imagen)}}" />
       <div class="carousel-caption">
       </div>
     </div>
-    <div class="item">
-      <a href="#"><img src="img/portfolio/CINE.jpg" /></a>
-      <div class="carousel-caption">
-      </div>
-    </div>
-    <div class="item">
-      <a href="#"><img src="img/portfolio/coca_cola_logo.gif" /></a>
-      <div class="carousel-caption">
-      </div>
-    </div>
+    @endforeach
   </div>
 
   <a class="left carousel-control" href="#carousel-example" data-slide="prev">
@@ -134,7 +126,7 @@
             <div class="row">
                 @foreach($trab as $trabajo)
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#{{$trabajo->Id}}" class="portfolio-link" data-toggle="modal">
+                    <a href="#{{$trabajo->id}}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -272,7 +264,7 @@
 
     <!-- Portfolio Modals -->
     @foreach($trab as $trabajo)
-    <div class="portfolio-modal modal fade" id="{{$trabajo->Id}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="{{$trabajo->id}}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -285,7 +277,7 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                         @foreach($tipot as $tipotrabajo)
-                            @if($tipotrabajo->Id==$trabajo->tipotrabajoId)
+                            @if($tipotrabajo->id==$trabajo->tipotrabajoId)
                             <h2> {{$tipotrabajo->Descripcion}} - {{$trabajo->DescripcionCorta}}</h2>
                             @endif
                             @endforeach

@@ -58,7 +58,7 @@ body {
   margin: 100px auto;
   width: 370px;
   height: 315px;
-  background: white;
+  background: black;
   border-radius: 3px;
 }
 .login:before {
@@ -80,7 +80,7 @@ body {
   text-transform: uppercase;
   color: #fff;
   text-align: center;
-  background: #1abc9c;
+  background: black;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
@@ -127,22 +127,34 @@ body {
 
 .form input[type=text], input[type=password] {
   font-family: 'Open Sans', Calibri, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 10px 15px 10px 55px;
-  position: relative;
-  width: 200px;
-  height: 24px;
-  color: #676056;
-  border: none;
-  background: #f7f3eb;
-  color: #777;
-  transition: color 0.3s ease-out;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 15px 10px 55px;
+    position: relative;
+    width: 213px;
+    height: 24px;
+    color: #676056;
+    border: none;
+    background: #ececec;
+    color: #777;
+    transition: color 0.3s ease-out;
 }
 
 .form input[type=text] {
   margin-bottom: 15px;
 }
+
+.form input[type=email]{
+  font-family: 'Open Sans', Calibri, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 15px 10px 49px;
+    position: relative;
+    width: 219px;
+    height: 30px;
+    border: none;
+    background-color: #ececec;
+} 
 
 .form input[type=text]:hover ~ i,
 .form input[type=password]:hover ~ i {
@@ -161,8 +173,10 @@ body {
 }
 
 .form input[type=submit] {
-  margin-top: 15px;
-  width: 270px;
+  margin-top: 40px;
+  width: 150px;
+  -webkit-border-radius: 5px 10px;  /* Safari  */
+  -moz-border-radius: 5px 10px;     /* Firefox */
   text-align: center;
   font-size: 14px;
   font-family: 'Open Sans',sans-serif;
@@ -171,7 +185,7 @@ body {
   letter-spacing: 0;
   box-shadow: inset 0px 0px 0px 0px #1abc9c;
   color: #fff;
-  background-color: #16a085;
+  background-color: black;
   text-shadow: none;
   text-transform: uppercase;
   border: none;
@@ -184,72 +198,12 @@ body {
 
 .form input[type=submit]:hover, input[type=submit]:focus {
   color: #fff;
-  box-shadow: inset 0px 46px 0px 0px #1abc9c;
+  box-shadow: inset 0px 46px 0px 0px #cc270b;
   -webkit-animation: shadowFade 0.4s;
   -moz-animation: shadowFade 0.4s;
 }
 
-/*keyframes for input animation*/
-@keyframes shadowFade {
-  0% {
-    box-shadow: inset 0px 0px 0px 0px #1abc9c;
-    color: #fff;
-  }
-  100% {
-    box-shadow: inset 0px 46px 0px 0px #1abc9c;
-    color: #fff;
-  }
-}
-@keyframes shadowFadeOut {
-  0% {
-    box-shadow: inset 0px 46px 0px 0px #1abc9c;
-    color: #fff;
-  }
-  100% {
-    box-shadow: inset 0px 0px 0px 0px #1abc9c;
-    color: #fff;
-  }
-}
-@-webkit-keyframes shadowFade {
-  0% {
-    box-shadow: inset 0px 0px 0px 0px #1abc9c;
-    color: #fff;
-  }
-  100% {
-    box-shadow: inset 0px 46px 0px 0px #1abc9c;
-    color: #fff;
-  }
-}
-@-webkit-keyframes shadowFadeOut {
-  0% {
-    box-shadow: inset 0px 46px 0px 0px #1abc9c;
-    color: #fff;
-  }
-  100% {
-    box-shadow: inset 0px 0px 0px 0px #1abc9c;
-    color: #fff;
-  }
-}
-@-moz-keyframes shadowFade {
-  0% {
-    box-shadow: inset 0px 0px 0px 0px #1abc9c;
-    color: #fff;
-  }
-  100% {
-    box-shadow: inset 0px 46px 0px 0px #1abc9c;
-    color: #fff;
-  }
-}
-@-moz-keyframes shadowFadeOut {
-  0% {
-    box-shadow: inset 0px 44px 0px 0px #1abc9c;
-    color: #fff;
-  }
-  100% {
-    box-shadow: inset 0px 0px 0px 0px #1abc9c;
-    color: #fff;
-  }
-}
+
 /*continued styling for input */
 .form input[type="checkbox"] {
   display: none;
@@ -290,7 +244,7 @@ body {
 
 <body>
   <div class="login">
-    <h1>Login</h1>
+    <h1>Caminos Creativos</h1>
     @yield('content')
     
     <div class="copyright">

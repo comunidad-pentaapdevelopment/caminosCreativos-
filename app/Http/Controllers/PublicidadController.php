@@ -24,7 +24,7 @@ class PublicidadController extends Controller
     		$query=trim($request->get('searchText'));
     		$publicidades=DB::table('publicidades')
     		->where('Descripcion','LIKE','%'.$query.'%')
-    		
+    		->where('Estado','=',1)
     		->orderBy('id','desc')
     		->paginate(7);
     		return view('publicidad.index',["publicidades"=>$publicidades,"searchText"=>$query]);
