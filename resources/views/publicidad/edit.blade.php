@@ -28,13 +28,16 @@
 					<div class="form-group">
 			<label for="Imagen">Imagen</label>
 			<input type="file" name="Imagen" required value="{{$publicidades->Imagen}}" class="form-control" >
+			@if(($publicidades->Imagen)!="")
+							<img src="{{asset('img/portfolio/'.$publicidades->Imagen)}}" height="100px" width="100px" class="img-thumbnail">
+						@endif
 			</div>
 				</div>
 				
 				
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Guardar</button>
-			<button type="reset" class="btn btn-danger">Cancelar</button>
+			<button href="{{url('publicidad')}}" class="btn btn-danger">Cancelar</button>
 			</div>
 
 			</div>

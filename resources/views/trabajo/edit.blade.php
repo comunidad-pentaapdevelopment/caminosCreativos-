@@ -20,16 +20,78 @@
 			<div class="row">
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 					<div class="form-group">
-			<label for="Descripcion">Descripcion</label>
-			<input type="text" name="Descripcion" required value="{{$tipotrabajos->Descripcion}}" class="form-control" >
-			</div>
+						<label for="tipotrabajos">Tipo Trabajos</label>
+							<select name="idcategoria" class="form-control">
+								@foreach($tipotrabajos as $tipTrab)
+								@if($tipTrab->id==$trabajos->tipotrabajoId)
+								<option value="{{$tipTrab->id}}" selected>{{$tipTrab->Descripcion}}</option>
+								@else
+
+								<option value="{{$tipTrab->id}}" >{{$tipTrab->Descripcion}}</option>
+								@endif
+								@endforeach	
+							</select>
+					</div>
 				</div>
-				
-				
-		<div class="form-group">
-			<button type="submit" class="btn btn-primary">Guardar</button>
-			<button type="reset" class="btn btn-danger">Cancelar</button>
-			</div>
+
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="DescripcionLarga">Descripcion Larga</label>
+						<input type="text" name="DescripcionLarga" required value="{{$trabajos->DescripcionLarga}}" class="form-control" >
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="DescripcionCorta">Descripcion Corta</label>
+						<input type="text" name="DescripcionCorta" required value="{{$trabajos->DescripcionCorta}}" class="form-control" >
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="Imagen">Imagen</label>
+						<input type="file" name="Imagen"  class="form-control">
+						@if(($trabajos->Imagen)!="")
+							<img src="{{asset('img/portfolio/'.$trabajos->Imagen)}}" height="100px" width="100px" class="img-thumbnail">
+						@endif
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="Audio">Audio</label>
+						<input type="file" name="Audio" class="form-control">
+						@if(($trabajos->Audio)!="")
+							<audio controls>
+ 								 <source src="{{asset('/mp3/'.$trabajos->Audio)}}" type="audio/mpeg">
+									Your browser does not support the audio element.
+							</audio>
+						@endif
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="Cliente">Cliente</label>
+						<input type="text" name="Cliente" required value="{{$trabajos->Cliente}}" class="form-control" >
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="Fecha">Fecha</label>
+						<input type="date" name="Fecha" required value="{{$trabajos->Fecha}}" class="form-control" >
+					</div>
+				</div>
+
+
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Guardar</button>
+						<button href="{{url('trabajo')}}" class="btn btn-danger">Cancelar</button>
+					</div>
+				</div>
 
 			</div>
 			{!!Form::close()!!}

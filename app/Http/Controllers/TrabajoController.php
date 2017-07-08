@@ -17,18 +17,19 @@ class TrabajoController extends Controller
     }
     public function index(Request $request)
     {
-    	if ($request) {
-    		$query=trim($request->get('searchText'));
-    		$trabajo=DB::table('trabajos as trab')
-            ->join('tipotrabajos as t','trab.tipotrabajoId','=','t.id')
-            ->select('t.Descripcion as tipoTrabDescripcion','trab.DescripcionCorta','trab.Imagen','trab.Cliente','trab.Fecha')
-    		->where('DescripcionCorta','LIKE','%'.$query.'%')
-    		->orwhere('Cliente','LIKE','%'.$query.'%')
-            ->where('Estado','=',1)
-    		->orderBy('id','desc')
-    		->paginate(7);
-    		return view('trabajo.index',["trabajos"=>$trabajo,"searchText"=>$query]);
-    	}
+    	if ($request) 
+        {
+            $query=trim($request->get('searchText'));
+            $trabajos=DB::table('trabajos as trab')
+            ->join('tipotrabajos as tipTrab','trab.tipotrabajoId','=','tipTrab.id')
+            ->select('trab.id','trab.Estado','tipTrab.Descripcion as TipoTrabajo','trab.DescripcionCorta','trab.Cliente','trab.Fecha','trab.Imagen','trab.Audio')
+            ->where('trab.DescripcionCorta','LIKE','%'.$query.'%')
+            ->orwhere('trab.Cliente','LIKE','%'.$query.'%')
+            ->where('trab.Estado','=',1)
+            ->orderBy('trab.id','desc')
+            ->paginate(7);
+            return view('trabajo.index',["trabajos"=>$trabajos,"searchText"=>$query]);
+        }
 
     }
 
@@ -74,11 +75,11 @@ class TrabajoController extends Controller
 
     public function edit($id)
     {
-        $trabajo=Trabajo::findOrFail($id);
+        $trabajos=Trabajo::findOrFail($id);
         $tipotrabajos=DB::table('tipotrabajos')->where('Estado','=',1)->get();
 
 
-        return view("trabajo.edit",["trabajos"=>$trabajo,"tipotrabajos"=>$tipotrabajos]);
+        return view("trabajo.edit",["trabajos"=>$trabajos,"tipotrabajos"=>$tipotrabajos]);
             
     }
 

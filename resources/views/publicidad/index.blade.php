@@ -18,7 +18,10 @@
 			@foreach($publicidades as $pub)
 			<tr>
 				<td>{{$pub->Descripcion}}</td>
-				<td>{{$pub->Imagen}}</td>
+				<td>
+					<img src="{{asset('/img/portfolio/'.$pub->Imagen)}}" alt="{{$pub->Descripcion}}" height="100px" width="100px" class="img-thumbnail">
+
+				</td>
 				<td>
 					<a href="{{URL::action('PublicidadController@edit',$pub->id)}}"><button class="btn btn-info">Editar</button></a>
 

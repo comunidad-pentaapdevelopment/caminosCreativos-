@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Publicidad extends Model
 {
     protected $table='publicidades';
-    protected $primayKey='Id';
+    protected $primayKey='id';
     public $timestamps=false;
 
     protected $fillable=[
