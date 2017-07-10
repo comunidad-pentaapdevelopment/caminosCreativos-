@@ -22,6 +22,8 @@
     <!-- Custom Fonts -->
     <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
       <link href="{{asset('css/home.css')}}" rel="stylesheet">
+      <link href="{{asset('css/bxslider.css')}}" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -74,18 +76,13 @@
         <header >
         <div class="container" id="maincontent" tabindex="-1">
             <!-- CAROUSEL PARA PUBLICIDADES -->
-                <div class="slider">
-                    <div class="container contslider">
-                    <div class="my-slider">
-                    <ul>
+                <div class="row">
+                    <ul class="slider"> 
                         @foreach($pub as $publicidad)
                         <li><img src="{{asset('img/portfolio/'.$publicidad->Imagen)}}" class="img-responsive img-centered" height="100px" width="100px"></li>
                         @endforeach
                     </ul>
-                        
-                    </div>
-                        
-                    </div>
+                     
                 </div>
 <!-- CAROUSEL -->
 
@@ -309,7 +306,14 @@
 
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
-  
+    <script src="js/bxslider.js"></script>  
+    <script>
+        $(document).ready(function(){
+            $('.slider').bxSlider({
+                slideWidth:500
+            });
+        });
+    </script>
 
 </body>
 
