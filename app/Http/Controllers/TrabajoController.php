@@ -23,9 +23,9 @@ class TrabajoController extends Controller
             $trabajos=DB::table('trabajos as trab')
             ->join('tipotrabajos as tipTrab','trab.tipotrabajoId','=','tipTrab.id')
             ->select('trab.id','tipTrab.Descripcion as TipoTrabajo','trab.DescripcionCorta','trab.Cliente','trab.Fecha','trab.Imagen','trab.Audio')
-            ->where('trab.DescripcionCorta','LIKE','%'.$query.'%')
-            ->orwhere('trab.Cliente','LIKE','%'.$query.'%')
-            ->where('trab.Estado','=','1')
+            ->where('trab.Estado','=',1)
+           ->where('trab.DescripcionCorta','LIKE','%'.$query.'%')
+            // 	->orwhere('trab.Cliente','LIKE','%'.$query.'%')
             ->orderBy('trab.id','desc')
             ->paginate(7);
             return view('trabajo.index',["trabajos"=>$trabajos,"searchText"=>$query]);
@@ -59,7 +59,7 @@ class TrabajoController extends Controller
     	}
     	$trabajo->Cliente=$request->get('Cliente');
     	$trabajo->Fecha=$request->get('Fecha');
-    	$trabajo->Estado='1';
+    	$trabajo->Estado=1;
 
     	$trabajo->save();
     	return Redirect::to('trabajo');
