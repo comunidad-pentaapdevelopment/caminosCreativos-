@@ -30,9 +30,9 @@
 
 				</td>
 				<td>
-					<audio controls>
+					<audio controls controlsList="nodownload" type="audio/mpeg" preload="preload">
  						 <source src="{{asset('/mp3/'.$trab->Audio)}}" type="audio/mpeg">
-						Your browser does not support the audio element.
+						
 					</audio>
 				</td>
 				<td>

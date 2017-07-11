@@ -21,7 +21,7 @@
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 					<div class="form-group">
 						<label for="tipotrabajos">Tipo Trabajos</label>
-							<select name="idcategoria" class="form-control">
+							<select name="tipotrabajoId" class="form-control selectpicker" data-live-search="true">
 								@foreach($tipotrabajos as $tipTrab)
 								@if($tipTrab->id==$trabajos->tipotrabajoId)
 								<option value="{{$tipTrab->id}}" selected>{{$tipTrab->Descripcion}}</option>
@@ -51,23 +51,14 @@
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 					<div class="form-group">
 						<label for="Imagen">Imagen</label>
-						<input type="file" name="Imagen"  class="form-control">
-						@if(($trabajos->Imagen)!="")
-							<img src="{{asset('img/portfolio/'.$trabajos->Imagen)}}" height="100px" width="100px" class="img-thumbnail">
-						@endif
+						<input type="image" name="Imagen"  class="form-control">
 					</div>
 				</div>
 
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 					<div class="form-group">
 						<label for="Audio">Audio</label>
-						<input type="file" name="Audio" class="form-control">
-						@if(($trabajos->Audio)!="")
-							<audio controls>
- 								 <source src="{{asset('/mp3/'.$trabajos->Audio)}}" type="audio/mpeg">
-									Your browser does not support the audio element.
-							</audio>
-						@endif
+						<input type="file" name="Audio"  class="form-control">
 					</div>
 				</div>
 

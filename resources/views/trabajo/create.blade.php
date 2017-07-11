@@ -21,7 +21,7 @@
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 					<div class="form-group">
 						<label for="tipotrabajos">Tipo Trabajos</label>
-							<select name="id" class="form-control">
+							<select name="tipotrabajoId" class="form-control selectpicker" data-live-search="true">
 								@foreach($tipotrabajos as $tipTrab)
 								<option value="{{$tipTrab->id}}">{{$tipTrab->Descripcion}}</option>
 								@endforeach	

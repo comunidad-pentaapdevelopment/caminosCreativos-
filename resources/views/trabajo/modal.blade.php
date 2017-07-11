@@ -9,7 +9,7 @@
 		<h4 class="modal-title">Eliminar  Trabajo</h4>
 		</div>
 		<div class="modal-body">
-			<p>Confirme si desea eliminar el Trabjo</p>
+			<p>Confirme si desea eliminar el Trabajo</p>
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

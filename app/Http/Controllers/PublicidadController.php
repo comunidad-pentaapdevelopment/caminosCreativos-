@@ -62,9 +62,11 @@ class PublicidadController extends Controller
     }
 
     public function edit($id)
+
     {
     
-    	return view("publicidad.edit",["publicidades"=>Publicidad::findOrFail($id)]);
+    $publicidades=Publicidad::findOrFail($id);
+    	return view("publicidad.edit",["publicidades"=>$publicidades]);
     		
     }
 

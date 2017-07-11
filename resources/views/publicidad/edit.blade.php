@@ -28,9 +28,7 @@
 					<div class="form-group">
 			<label for="Imagen">Imagen</label>
 			<input type="file" name="Imagen" required value="{{$publicidades->Imagen}}" class="form-control" >
-			@if(($publicidades->Imagen)!="")
-							<img src="{{asset('img/portfolio/'.$publicidades->Imagen)}}" height="100px" width="100px" class="img-thumbnail">
-						@endif
+		
 			</div>
 				</div>
 				
