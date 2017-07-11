@@ -89,11 +89,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
-                    <div class="intro-text">
-                        <h1 class="name">Caminos Creativos</h1>
-                        <hr class="star-light">
-                        <span class="skills">Arte & Publicidad</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -110,7 +105,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($trab as $trabajo)
+                @foreach($ultimo as $trabajo)
                 <div class="col-sm-4 portfolio-item">
                     <a href="#{{$trabajo->id}}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
@@ -151,42 +146,48 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Contactanos</h2>
+          
                     <hr class="star-primary">
+            <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="table-responsive">
+            <table class="table table-striped table-bordered table-condenser table-hover">
+            <thead>
+                <th>Tipo Trabajo</th>
+                <th>Descripcion Corta</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Imagen</th>
+                <th>Audio</th>
+            </thead>
+            @foreach($trab as $trab)
+            <tr>
+                <td>{{$trab->TipoTrabajo}}</td>
+                <td>{{$trab->DescripcionCorta}}</td>
+                <td>{{$trab->Cliente}}</td>
+                <td>{{$trab->Fecha}}</td>
+                <td>
+                    <img src="{{asset('/img/portfolio/'.$trab->Imagen)}}" alt="{{$trab->DescripcionCorta}}" height="100px" width="100px" class="img-thumbnail">
+
+                </td>
+                <td>
+                    <audio controls controlsList="nodownload" type="audio/mpeg" preload="preload">
+                         <source src="{{asset('/mp3/'.$trab->Audio)}}" type="audio/mpeg">
+                        
+                    </audio>
+                </td>
+               
+            </tr>
+            @endforeach
+            </table>
+            </div>
+            
+        </div>
+
+    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name">Nombre</label>
-                                <input type="text" class="form-control" placeholder="Nombre" id="name" required data-validation-required-message="Please enter your name.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Please enter your email address.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="phone">Telefono:</label>
-                                <input type="tel" class="form-control" placeholder="Telefono" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="message">Mensaje:</label>
-                                <textarea rows="5" class="form-control" placeholder="Mensaje" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
+          
                         <br>
                         <div id="success"></div>
                         <div class="row">
@@ -249,7 +250,7 @@
     </div>
 
     <!-- Portfolio Modals -->
-    @foreach($trab as $trabajo)
+    @foreach($ultimo as $trabaj)
     <div class="portfolio-modal modal fade" id="{{$trabajo->id}}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -263,23 +264,23 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                         @foreach($tipot as $tipotrabajo)
-                            @if($tipotrabajo->id==$trabajo->tipotrabajoId)
-                            <h2> {{$tipotrabajo->Descripcion}} - {{$trabajo->DescripcionCorta}}</h2>
+                            @if($tipotrabajo->id==$trabaj->tipotrabajoId)
+                            <h2> {{$tipotrabajo->Descripcion}} - {{$trabaj->DescripcionCorta}}</h2>
                             @endif
                             @endforeach
                             <hr class="star-primary">
-                            <img src="{{asset('img/portfolio/'.$trabajo->Imagen)}}" class="img-responsive img-centered" alt="">
-                            <p>{{$trabajo->DescripcionLarga}}</p>
+                            <img src="{{asset('img/portfolio/'.$trabaj->Imagen)}}" class="img-responsive img-centered" alt="">
+                            <p>{{$trabaj->DescripcionLarga}}</p>
                             
-                            <audio src="{{asset('mp3/'.$trabajo->Audio)}}" controls controlsList="nodownload" type="audio/mpeg" preload="preload">
+                            <audio src="{{asset('mp3/'.$trabaj->Audio)}}" controls controlsList="nodownload" type="audio/mpeg" preload="preload">
                             </audio>
                             <ul class="list-inline item-details">
                                 <li>Cliente:
-                                    <strong><p>{{$trabajo->Cliente}}</p>
+                                    <strong><p>{{$trabaj->Cliente}}</p>
                                     </strong>
                                 </li>
                                 <li>Fecha:
-                                    <strong><p>{{$trabajo->Fecha}}</p>
+                                    <strong><p>{{$trabaj->Fecha}}</p>
                                     </strong>
                                 </li>
                             </ul>
