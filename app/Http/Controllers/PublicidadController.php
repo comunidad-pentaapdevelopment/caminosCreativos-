@@ -15,9 +15,11 @@ use DB;
 
 class PublicidadController extends Controller
 {
- public function __construct(){
+    public function __construct()
+    {
 
     }
+
     public function index(Request $request)
     {
     	if ($request) {
@@ -62,17 +64,15 @@ class PublicidadController extends Controller
     }
 
     public function edit($id)
-
     {
     
-    $publicidades=Publicidad::findOrFail($id);
-    	return view("publicidad.edit",["publicidades"=>$publicidades]);
-    		
+        $publicidades=Publicidad::findOrFail($id);
+    	return view("publicidad.edit",["publicidades"=>$publicidades]); 		
     }
 
     public function update(PublicidadFormRequest $request,$id)
     {
-    	$publicidad=new Publicidad;
+    	$publicidad=Publicidad::findOrFail($id);
     	$publicidad->Descripcion=$request->get('Descripcion');
     	if(Input::hasFile('Imagen'))
         {

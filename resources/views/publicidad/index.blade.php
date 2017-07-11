@@ -19,7 +19,7 @@
 			<tr>
 				<td>{{$pub->Descripcion}}</td>
 				<td>
-					<img src="{{asset('/img/portfolio/'.$pub->Imagen)}}" alt="{{$pub->Descripcion}}" height="100px" width="100px" class="img-thumbnail">
+					<img src="{{asset('/img/portfolio/'.$pub->Imagen)}}"  height="100px" width="100px" class="img-thumbnail">
 
 				</td>
 				<td>

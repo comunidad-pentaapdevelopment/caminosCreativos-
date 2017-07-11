@@ -25,7 +25,7 @@ class TipoTrabajoFormRequest extends Request
     {
         return [
             //
-            'Descripcion'=>'required|max:50',
+            'Descripcion'=>'required|max:50'
         ];
     }
 }

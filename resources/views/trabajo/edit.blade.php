@@ -15,7 +15,7 @@
 		</div>
 	</div>
 
-			{!! Form::model($trabajos,['method'=>'PATCH','route'=>['trabajo.update',$trabajos->id]])!!}
+			{!! Form::model($trabajos,['method'=>'PATCH','route'=>['trabajo.update',$trabajos->id],'files'=>'true'])!!}
 			{!!Form::token()!!}
 			<div class="row">
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
