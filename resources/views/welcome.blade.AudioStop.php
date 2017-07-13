@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>CAMINOS</title>
+    <title>CAMINOS CREATIVOS</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     <!-- Custom Fonts -->
     <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-      <!--<link href="{{asset('css/home.css')}}" rel="stylesheet"> -->
+      <link href="{{asset('css/home.css')}}" rel="stylesheet">
       <link href="{{asset('css/bxslider.css')}}" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -171,9 +171,8 @@
 
                 </td>
                 <td>
-                    <audio controls controlsList="nodownload"  preload="preload">
+                    <audio id="{{$trab->id}}" onplay="pararTodosLosAudios({{$trab->id}})" controls controlsList="nodownload"  preload="preload">
                          <source src="{{asset('/audios/'.$trab->Audio)}}" type="audio/mpeg">
-                        
                     </audio>
                 </td>  
             </tr>
@@ -263,7 +262,8 @@
                             <img src="{{asset('img/portfolio/'.$unTrabajo->Imagen)}}" class="img-responsive img-centered" alt="">
                             <p>{{$unTrabajo->DescripcionLarga}}</p>
                             
-                            <audio src="{{asset('/audios/'.$unTrabajo->Audio)}}" controls controlsList="nodownload" type="audio/mpeg" preload="preload">
+                            <audio id="{{$unTrabajo->id}}" onplay="pararTodosLosAudios({{$unTrabajo->id}})" controls controlsList="nodownload"  preload="preload">
+                                <source src="{{asset('/audios/'.$unTrabajo->Audio)}}" type="audio/mpeg">
                             </audio>
                             <ul class="list-inline item-details">
                                 <li>Cliente:
@@ -316,9 +316,9 @@
             });
         });
 
-        function pararTodosLosAudiosPorqueHicePlayEn(elementoAudio){
+        function pararTodosLosAudios(id){
             for (var j = elementosAudios.length - 1; j >= 0; j--) {
-                if(elementoAudio != elementosAudios[j]){
+                if(id != elementosAudios[j].id){
                     elementosAudios[j].currentTime = 0;
                     elementosAudios[j].pause();
                 }
@@ -326,11 +326,6 @@
         }
 
         var elementosAudios = document.getElementsByTagName('audio');
-        for (var i = elementosAudios.length - 1; i >= 0; i--) {
-            elementosAudios[i].addEventListener("play",function(evento){
-                pararTodosLosAudiosPorqueHicePlayEn(evento.target);
-            });
-        };
     </script>
 
 </body>
