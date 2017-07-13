@@ -32,19 +32,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $trab=DB::table('trabajos as trab')
+        $trabajos=DB::table('trabajos as trab')
             ->join('tipotrabajos as tipTrab','trab.tipotrabajoId','=','tipTrab.id')
             ->select('trab.id','tipTrab.Descripcion as TipoTrabajo','trab.DescripcionCorta','trab.Cliente','trab.Fecha','trab.Imagen','trab.Audio')
             ->where('trab.Estado','=',1)
             ->orderBy('TipoTrabajo')
             ->paginate(7);
-        $tipot=TipoTrabajo::all();
-        $pub=Publicidad::where('Estado',0)->get();
+        $tipoDeTrabajos=TipoTrabajo::all();
+        $publicidades=Publicidad::where('Estado',1)->get();
 
-        $ultimo=Trabajo::where('Estado',1)->orderBy('id','desc')->take(2)->get();
+        $ultimosTrabajos=Trabajo::where('Estado',1)->orderBy('id','desc')->take(6)->get();
 
 
         
-        return view('welcome',compact('trab','tipot','pub','ultimo'));
+        return view('welcome',compact('trabajos','tipoDeTrabajos','publicidades','ultimosTrabajos'));
     }
 }

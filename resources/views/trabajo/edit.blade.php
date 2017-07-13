@@ -51,14 +51,24 @@
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 					<div class="form-group">
 						<label for="Imagen">Imagen</label>
-						<input type="file" name="Imagen"  class="form-control">
+						<input id="subirImagen" class="field" type="file" name="Imagen" class="form-control" >
+							<br>
+							@if(($trabajos->Imagen)!="")
+							<img id="mostrarImagen" src="{{asset('img/portfolio/'.$trabajos->Imagen)}}"  width="25%" class="img-thumbnail">
+							@endif
 					</div>
 				</div>
 
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 					<div class="form-group">
 						<label for="Audio">Audio</label>
-						<input type="file" name="Audio"  class="form-control">
+						<input id="subirAudio" class="field" type="file" name="Audio" class="form-control" >
+							<br>
+							@if(($trabajos->Audio)!="")
+							<audio id="mostrarAudio" controls controlsList="nodownload"  preload="preload">
+ 								 <source src="{{asset('/audios/'.$trabajos->Audio)}}" type="audio/mpeg">
+							</audio>
+							@endif
 					</div>
 				</div>
 
@@ -87,4 +97,46 @@
 			</div>
 			{!!Form::close()!!}
 		
+			<script type="text/javascript">
+				//IMAGEN
+				var elementoInputImagen = document.getElementById('subirImagen');
+				var elementoMostrarImagen = document.getElementById('mostrarImagen');
+				
+				
+				function cambioImagenSeleccionada(){
+					var reader = new FileReader();
+					var file = elementoInputImagen.files[0];
+					reader.onloadend = function (){
+						elementoMostrarImagen.src = reader.result;
+					}
+					if(file){
+						reader.readAsDataURL(file);
+					}else{
+						elementoMostrarImagen.src = "";
+					}		
+				}
+
+				elementoInputImagen.addEventListener('change',cambioImagenSeleccionada);
+
+				// AUDIO
+				var elementoInputAudio = document.getElementById('subirAudio');
+				var elementoMostrarAudio = document.getElementById('mostrarAudio');
+				
+				
+				function cambioAudioSeleccionado(){
+					var reader = new FileReader();
+					var file = elementoInputAudio.files[0];
+					reader.onloadend = function (){
+						elementoMostrarAudio.src = reader.result;
+					}
+					if(file){
+						reader.readAsDataURL(file);
+					}else{
+						elementoMostrarAudio.src = "";
+					}
+				}
+
+				elementoInputAudio.addEventListener('change',cambioAudioSeleccionado);
+
+			</script>
 @endsection

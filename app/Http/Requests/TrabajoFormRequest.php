@@ -28,8 +28,8 @@ class TrabajoFormRequest extends Request
         	'tipotrabajoId'=>'required',
             'DescripcionLarga'=>'required|max:50',
             'DescripcionCorta'=>'required|max:30',
-            'Imagen'=>'required|mimes:jpeg,bpm,png,jpg',
-            'Audio'=>'required',
+            'Imagen'=>'mimes:jpeg,bmp,png,jpg,gif',
+            'Audio'=>'mimes:mpga,wav',
             'Cliente'=>'required',
             'Fecha'=>'required' 
         ];

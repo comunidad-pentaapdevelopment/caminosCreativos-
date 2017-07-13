@@ -26,7 +26,7 @@ class PublicidadFormRequest extends Request
         return [
             //
             'Descripcion'=>'required|max:50',
-            'Imagen'=>'required|mimes:jpeg,bpm,png,jpg'
+            'Imagen'=>'mimes:jpeg,bmp,png,jpg,gif'
         ];
     }
 }

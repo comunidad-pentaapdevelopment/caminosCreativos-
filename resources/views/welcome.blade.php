@@ -57,13 +57,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Trabajos</a>
+                        <a href="#portfolio">Ultimos Trabajos</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">¿Quienes Somos?</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contactanos</a>
+                        <a href="#trabajos">Trabajos</a>
                     </li>
                 </ul>
             </div>
@@ -78,8 +78,8 @@
             <!-- CAROUSEL PARA PUBLICIDADES -->
                 <div class="row">
                     <ul class="slider"> 
-                        @foreach($pub as $publicidad)
-                        <li><img src="{{asset('img/portfolio/'.$publicidad->Imagen)}}" class="img-responsive img-centered" height="100px" width="100px"></li>
+                        @foreach($publicidades as $publicidad)
+                        <li><img src="{{asset('img/portfolio/'.$publicidad->Imagen)}}" class="img-responsive img-centered"></li>
                         @endforeach
                     </ul>
                      
@@ -100,20 +100,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Trabajos</h2>
+                    <h2>Ultimos Trabajos</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
-                @foreach($ultimo as $trabajo)
+                @foreach($ultimosTrabajos as $unTrabajo)
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#{{$trabajo->id}}" class="portfolio-link" data-toggle="modal">
+                    <a href="#{{$unTrabajo->id}}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="{{asset('img/portfolio/'.$trabajo->Imagen)}}" class="img-responsive" >
+                        <img src="{{asset('img/portfolio/'.$unTrabajo->Imagen)}}" class="img-responsive" >
                     </a>
                 </div>
                 @endforeach
@@ -141,11 +141,11 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="trabajos">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contactanos</h2>
+                    <h2>Trabajos</h2>
           
                     <hr class="star-primary">
             <div class="row">
@@ -160,7 +160,7 @@
                 <th>Imagen</th>
                 <th>Audio</th>
             </thead>
-            @foreach($trab as $trab)
+            @foreach($trabajos as $trab)
             <tr>
                 <td>{{$trab->TipoTrabajo}}</td>
                 <td>{{$trab->DescripcionCorta}}</td>
@@ -172,7 +172,7 @@
                 </td>
                 <td>
                     <audio controls controlsList="nodownload" type="audio/mpeg" preload="preload">
-                         <source src="{{asset('/mp3/'.$trab->Audio)}}" type="audio/mpeg">
+                         <source src="{{asset('/audios/'.$trab->Audio)}}" type="audio/mpeg">
                         
                     </audio>
                 </td>
@@ -187,14 +187,6 @@
     </div>
                 </div>
             </div>
-          
-                        <br>
-                        <div id="success"></div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -250,8 +242,8 @@
     </div>
 
     <!-- Portfolio Modals -->
-    @foreach($ultimo as $trabaj)
-    <div class="portfolio-modal modal fade" id="{{$trabajo->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+    @foreach($ultimosTrabajos as $unTrabajo)
+    <div class="portfolio-modal modal fade" id="{{$unTrabajo->id}}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -263,24 +255,24 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                        @foreach($tipot as $tipotrabajo)
-                            @if($tipotrabajo->id==$trabaj->tipotrabajoId)
-                            <h2> {{$tipotrabajo->Descripcion}} - {{$trabaj->DescripcionCorta}}</h2>
+                        @foreach($tipoDeTrabajos as $tipotrabajo)
+                            @if($tipotrabajo->id==$unTrabajo->tipotrabajoId)
+                            <h2> {{$tipotrabajo->Descripcion}} - {{$unTrabajo->DescripcionCorta}}</h2>
                             @endif
                             @endforeach
                             <hr class="star-primary">
-                            <img src="{{asset('img/portfolio/'.$trabaj->Imagen)}}" class="img-responsive img-centered" alt="">
-                            <p>{{$trabaj->DescripcionLarga}}</p>
+                            <img src="{{asset('img/portfolio/'.$unTrabajo->Imagen)}}" class="img-responsive img-centered" alt="">
+                            <p>{{$unTrabajo->DescripcionLarga}}</p>
                             
-                            <audio src="{{asset('mp3/'.$trabaj->Audio)}}" controls controlsList="nodownload" type="audio/mpeg" preload="preload">
+                            <audio src="{{asset('/audios/'.$unTrabajo->Audio)}}" controls controlsList="nodownload" type="audio/mpeg" preload="preload">
                             </audio>
                             <ul class="list-inline item-details">
                                 <li>Cliente:
-                                    <strong><p>{{$trabaj->Cliente}}</p>
+                                    <strong><p>{{$unTrabajo->Cliente}}</p>
                                     </strong>
                                 </li>
                                 <li>Fecha:
-                                    <strong><p>{{$trabaj->Fecha}}</p>
+                                    <strong><p>{{$unTrabajo->Fecha}}</p>
                                     </strong>
                                 </li>
                             </ul>
@@ -311,7 +303,17 @@
     <script>
         $(document).ready(function(){
             $('.slider').bxSlider({
-                slideWidth:500
+                slideWidth:468,
+                slideHeight:60,
+                slideMargin:0,
+                controls:false,
+                auto:true,
+                pause:1500,
+                mode:'horizontal',
+                speed:5000,
+                randomStart:true,
+                pager:false,
+                infiniteLoop:true
             });
         });
     </script>

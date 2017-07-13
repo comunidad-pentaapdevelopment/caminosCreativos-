@@ -54,10 +54,12 @@ class TrabajoController extends Controller
     	if(Input::hasFile('Audio'))
     	{
     		$file=Input::file('Audio');
-    		$file->move(public_path().'/mp3/',$file->getClientOriginalName());
+    		$file->move(public_path().'/audios/',$file->getClientOriginalName());
     		$trabajo->Audio=$file->getClientOriginalName();
-    	}
-    	$trabajo->Cliente=$request->get('Cliente');
+    	}else{
+            $trabajo->Audio="NoAudio.mp3";
+        }
+        $trabajo->Cliente=$request->get('Cliente');
     	$trabajo->Fecha=$request->get('Fecha');
     	$trabajo->Estado=1;
 
@@ -99,9 +101,11 @@ class TrabajoController extends Controller
     	if(Input::hasFile('Audio'))
     	{
     		$file=Input::file('Audio');
-    		$file->move(public_path().'/mp3/',$file->getClientOriginalName());
+    		$file->move(public_path().'/audios/',$file->getClientOriginalName());
     		$trabajo->Audio=$file->getClientOriginalName();
-    	}
+    	}else{
+            $trabajo->Audio="NoAudio.mp3";
+        }
     	$trabajo->Cliente=$request->get('Cliente');
     	$trabajo->Fecha=$request->get('Fecha');
     	$trabajo->Estado=1;

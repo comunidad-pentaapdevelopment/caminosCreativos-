@@ -30,8 +30,8 @@
 
 				</td>
 				<td>
-					<audio controls controlsList="nodownload" type="audio/mpeg" preload="preload">
- 						 <source src="{{asset('/mp3/'.$trab->Audio)}}" type="audio/mpeg">
+					<audio controls controlsList="nodownload" preload="preload">
+ 						 <source src="{{asset('/audios/'.$trab->Audio)}}" type="audio/mpeg">
 						
 					</audio>
 				</td>

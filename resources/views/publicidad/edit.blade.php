@@ -27,8 +27,11 @@
 			<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 					<div class="form-group">
 			<label for="Imagen">Imagen</label>
-			<input type="file" name="Imagen" required value="{{$publicidades->Imagen}}" class="form-control" >
-		
+			<input id="subirImagen" class="field" type="file" name="Imagen" class="form-control" >
+			<br>
+			@if(($publicidades->Imagen)!="")
+			<img id="mostrarImagen" src="{{asset('img/portfolio/'.$publicidades->Imagen)}}"  width="25%" class="img-thumbnail">
+			@endif
 			</div>
 				</div>
 				
@@ -41,4 +44,29 @@
 			</div>
 			{!!Form::close()!!}
 		
+
+			<script type="text/javascript">
+				var elementoInputImagen = document.getElementById('subirImagen');
+				var elementoMostrarImagen = document.getElementById('mostrarImagen');
+				
+				
+				function cambioImagenSeleccionada(){
+					console.log(elementoInputImagen.value);
+					var reader = new FileReader();
+					var file = elementoInputImagen.files[0];
+					reader.onloadend = function (){
+						elementoMostrarImagen.src = reader.result;
+					}
+					if(file){
+						reader.readAsDataURL(file);
+					}else{
+						elementoMostrarImagen.src = "";
+					}
+					//elementoMostrarImagen.src = elementoInputImagen.value;
+				}
+
+				elementoInputImagen.addEventListener('change',cambioImagenSeleccionada);
+
+			</script>
+
 @endsection
