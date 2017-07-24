@@ -42,9 +42,9 @@
 
 				</td> 
 			</tr>
+			</table>
 			@include('trabajo.modal')
 			@endforeach
-			</table>
 			</div>
 			{{$trabajos->render()}}
 		</div>

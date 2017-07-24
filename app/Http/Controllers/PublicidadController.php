@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use Caminos\Http\Requests;
 use Caminos\Publicidad;
-
+use Session;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
@@ -27,7 +28,6 @@ class PublicidadController extends Controller
     		$publicidades=DB::table('publicidades')
     		->where('Descripcion','LIKE','%'.$query.'%')
     		->where('Estado','=',1)
-    		->orderBy('id','desc')
     		->paginate(7);
     		return view('publicidad.index',["publicidades"=>$publicidades,"searchText"=>$query]);
     	}
@@ -59,7 +59,6 @@ class PublicidadController extends Controller
 
     public function show($id)
     {
-    	return view("publicidad.show",["publicidades"=>Publicidad::findOrFail($id)]);
     	
     }
 
@@ -90,5 +89,6 @@ class PublicidadController extends Controller
     	$publicidad=Publicidad::findOrFail($id);
     	$publicidad->Estado=0;
     	$publicidad->update();
-    	return Redirect::to('publicidad');
-    }}
+    return Redirect::to('/publicidad');
+    }
+}

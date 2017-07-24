@@ -152,8 +152,6 @@
           <b>Version</b> 2.3.0
         </div>
       </footer>
-
-      
     <!-- jQuery 2.1.4 -->
     <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     @stack('scripts')
@@ -161,6 +159,8 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
     <!-- AdminLTE App -->
+
+     
     <script src="{{asset('js/app.min.js')}}"></script>
     
   </body>
