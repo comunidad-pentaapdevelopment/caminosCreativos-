@@ -37,7 +37,7 @@ class HomeController extends Controller
             ->select('trab.id','tipTrab.Descripcion as TipoTrabajo','trab.DescripcionCorta','trab.Cliente','trab.Fecha','trab.Imagen','trab.Audio')
             ->where('trab.Estado','=',1)
             ->orderBy('TipoTrabajo')
-            ->paginate(7);
+            ->paginate(2);
         $tipoDeTrabajos=TipoTrabajo::all();
         $publicidades=Publicidad::where('Estado',1)->get();
 

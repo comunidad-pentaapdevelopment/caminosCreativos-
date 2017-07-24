@@ -181,6 +181,7 @@
             </table>
             </div>
             
+            {{$trabajos->render()}}
         </div>
 
     </div>

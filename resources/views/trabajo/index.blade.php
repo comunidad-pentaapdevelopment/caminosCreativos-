@@ -37,14 +37,16 @@
 				</td>
 				<td>
 					<a href="{{URL::action('TrabajoController@edit',$trab->id)}}"><button class="btn btn-info">Editar</button></a>
+					{!!Form::open(['route'=>['trabajo.destroy',$trab->id],'method'=>'DELETE'])!!}
+					{!!Form::submit('Eliminar',['class'=> 'btn btn-danger','onclick'=>'return confirm("Estas Seguro?")'])!!}
 
-					<a hhref="" data-target="#modal-delete-{{$trab->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button> 
+					{!!Form::close()!!}
 
 				</td> 
 			</tr>
-			</table>
-			@include('trabajo.modal')
+
 			@endforeach
+			</table>
 			</div>
 			{{$trabajos->render()}}
 		</div>

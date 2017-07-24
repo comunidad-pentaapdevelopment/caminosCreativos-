@@ -71,5 +71,5 @@ class TipoTrabajoController extends Controller
     	$tipotrabajo=TipoTrabajo::findOrFail($id);
     	$tipotrabajo->Estado=0;
     	$tipotrabajo->update();
-    	return Redirect::to('tipotrabajo');
+    	return Redirect::to('/tipotrabajo');
     }}

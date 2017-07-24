@@ -20,11 +20,12 @@
 				<td>
 					<a href="{{URL::action('TipoTrabajoController@edit',$tipTrab->id)}}"><button class="btn btn-info">Editar</button></a>
 
-					<a href="" data-target="#modal-delete-{{$tipTrab->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button> 
+					{!!Form::open(['route'=>['tipotrabajo.destroy',$tipTrab->id],'method'=>'DELETE'])!!}
+					{!!Form::submit('Eliminar',['class'=> 'btn btn-danger','onclick'=>'return confirm("Estas Seguro?")'])!!}
 
+					{!!Form::close()!!}
 				</td> 
 			</tr>
-			@include('tipoTrabajos.modal')
 			@endforeach
 			</table>
 			</div>
