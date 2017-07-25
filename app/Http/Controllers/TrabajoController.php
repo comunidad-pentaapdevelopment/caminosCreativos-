@@ -23,7 +23,7 @@ class TrabajoController extends Controller
             $trabajos=DB::table('trabajos as trab')
             ->join('tipotrabajos as tipTrab','trab.tipotrabajoId','=','tipTrab.id')
             ->select('trab.id','tipTrab.Descripcion as TipoTrabajo','trab.DescripcionCorta','trab.Cliente','trab.Fecha','trab.Imagen','trab.Audio')
-            ->where('trab.Estado','=',1)
+            ->where('trab.Estado','=','ACTIVO')
            ->where('trab.DescripcionCorta','LIKE','%'.$query.'%')
             // 	->orwhere('trab.Cliente','LIKE','%'.$query.'%')
             ->orderBy('trab.id','desc')
@@ -35,7 +35,7 @@ class TrabajoController extends Controller
 
     public function create()
     {
-    	$tipotrabajos=DB::table('tipotrabajos')->where('Estado','=',1)->get();
+    	$tipotrabajos=DB::table('tipotrabajos')->where('Estado','=','ACTIVO')->get();
         return view("trabajo.create",["tipotrabajos"=>$tipotrabajos]);
     }
 
@@ -61,7 +61,7 @@ class TrabajoController extends Controller
         }
         $trabajo->Cliente=$request->get('Cliente');
     	$trabajo->Fecha=$request->get('Fecha');
-    	$trabajo->Estado=1;
+    	$trabajo->Estado='ACTIVO';
 
     	$trabajo->save();
     	return Redirect::to('trabajo');
@@ -78,7 +78,7 @@ class TrabajoController extends Controller
     public function edit($id)
     {
         $trabajos=Trabajo::findOrFail($id);
-        $tipotrabajos=DB::table('tipotrabajos')->where('Estado','=',1)->get();
+        $tipotrabajos=DB::table('tipotrabajos')->where('Estado','=','ACTIVO')->get();
 
 
         return view("trabajo.edit",["trabajos"=>$trabajos,"tipotrabajos"=>$tipotrabajos]);
@@ -108,7 +108,6 @@ class TrabajoController extends Controller
         }
     	$trabajo->Cliente=$request->get('Cliente');
     	$trabajo->Fecha=$request->get('Fecha');
-    	$trabajo->Estado=1;
 
     	$trabajo->update();
     	return Redirect::to('trabajo');
@@ -117,7 +116,7 @@ class TrabajoController extends Controller
     public function destroy($id)
     {
     	$trabajo=Trabajo::findOrFail($id);
-    	$trabajo->Estado=0;
+    	$trabajo->Estado='INACTIVO';
     	$trabajo->update();
     	return Redirect::to('/trabajo');
     }}

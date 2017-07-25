@@ -27,7 +27,7 @@ class PublicidadController extends Controller
     		$query=trim($request->get('searchText'));
     		$publicidades=DB::table('publicidades')
     		->where('Descripcion','LIKE','%'.$query.'%')
-    		->where('Estado','=',1)
+    		->where('Estado','=','ACTIVO')
     		->paginate(7);
     		return view('publicidad.index',["publicidades"=>$publicidades,"searchText"=>$query]);
     	}
@@ -49,7 +49,7 @@ class PublicidadController extends Controller
             $file->move(public_path().'/img/portfolio/',$file->getClientOriginalName());
             $publicidad->Imagen=$file->getClientOriginalName();
         }
-    	$publicidad->Estado=1;
+    	$publicidad->Estado='ACTIVO';
 
     	$publicidad->save();
     	return Redirect::to('publicidad');
@@ -87,7 +87,7 @@ class PublicidadController extends Controller
     public function destroy($id)
     {
     	$publicidad=Publicidad::findOrFail($id);
-    	$publicidad->Estado=0;
+    	$publicidad->Estado='INACTIVO';
     	$publicidad->update();
     return Redirect::to('/publicidad');
     }
