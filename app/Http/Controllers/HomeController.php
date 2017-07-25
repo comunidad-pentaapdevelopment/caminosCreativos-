@@ -35,13 +35,13 @@ class HomeController extends Controller
         $trabajos=DB::table('trabajos as trab')
             ->join('tipotrabajos as tipTrab','trab.tipotrabajoId','=','tipTrab.id')
             ->select('trab.id','tipTrab.Descripcion as TipoTrabajo','trab.DescripcionCorta','trab.Cliente','trab.Fecha','trab.Imagen','trab.Audio')
-            ->where('trab.Estado','=',1)
+            ->where('trab.Estado','=','ACTIVO')
             ->orderBy('TipoTrabajo')
             ->paginate(2);
         $tipoDeTrabajos=TipoTrabajo::all();
-        $publicidades=Publicidad::where('Estado',1)->get();
+        $publicidades=Publicidad::where('Estado','ACTIVO')->get();
 
-        $ultimosTrabajos=Trabajo::where('Estado',1)->orderBy('id','desc')->take(6)->get();
+        $ultimosTrabajos=Trabajo::where('Estado','ACTIVO')->orderBy('id','desc')->take(6)->get();
 
 
         
