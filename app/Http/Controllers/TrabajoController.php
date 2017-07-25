@@ -119,5 +119,5 @@ class TrabajoController extends Controller
     	$trabajo=Trabajo::findOrFail($id);
     	$trabajo->Estado=0;
     	$trabajo->update();
-    	return Redirect::to('trabajo');
+    	return Redirect::to('/trabajo');
     }}

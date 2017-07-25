@@ -15,7 +15,8 @@
 				<th>Imagen</th>
 				<th>Opciones</th>
 			</thead>
-			@foreach($publicidades as $pub)
+				@foreach($publicidades as $pub)
+			
 			<tr>
 				<td>{{$pub->Descripcion}}</td>
 				<td>
@@ -24,14 +25,15 @@
 				</td>
 				<td>
 					<a href="{{URL::action('PublicidadController@edit',$pub->id)}}"><button class="btn btn-info">Editar</button></a>
-
-					<a href="" data-target="#modal-delete-{{$pub->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button> 
-
-				</td> 
+					{!!Form::open(['route'=>['publicidad.destroy',$pub->id],'method'=>'DELETE'])!!}
+					{!!Form::submit('Eliminar',['class'=> 'btn btn-danger','onclick'=>'return confirm("Estas Seguro?")'])!!}
+					{!!Form::close()!!}
+					</td>
+			
 			</tr>
-			@include('publicidad.modal')
-			@endforeach
+			@endforeach 
 			</table>
+			
 			</div>
 			{{$publicidades->render()}}
 		</div>

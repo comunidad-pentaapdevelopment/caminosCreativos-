@@ -71,10 +71,9 @@ class TipoTrabajoController extends Controller
 
     public function destroy($id)
     {
-    	  // $tipotrabajo=TipoTrabajo::findOrFail($id);
-    	  // $tipotrabajo->Estado='INACTIVO';
-    	  // $tipotrabajo->update();
-    	   // return Redirect::to('tipotrabajo');   
-        
+    	$tipotrabajo=TipoTrabajo::findOrFail($id);
+    	$tipotrabajo->Estado='INACTIVO';
+    	$tipotrabajo->update();
+    	return Redirect::to('/tipotrabajo');
     }
 }
