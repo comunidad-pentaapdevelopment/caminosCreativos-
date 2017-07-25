@@ -24,7 +24,7 @@
 
 				</td>
 				<td>
-					<button onclick="window.location.href='{{URL::action('TipoTrabajoController@edit',$pub->id)}}'" class="btn btn-info">Editar</button>
+					<button onclick="window.location.href='{{URL::action('PublicidadController@edit',$pub->id)}}'" class="btn btn-info">Editar</button>
 				</td>
 				<td>
 					{!!Form::open(['route'=>['publicidad.destroy',$pub->id],'method'=>'DELETE'])!!}

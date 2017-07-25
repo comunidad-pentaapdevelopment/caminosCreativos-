@@ -37,7 +37,7 @@
 					</audio>
 				</td>
 				<td>
-					<button onclick="window.location.href='{{URL::action('TipoTrabajoController@edit',$trab->id)}}'" class="btn btn-info">Editar</button>
+					<button onclick="window.location.href='{{URL::action('TrabajoController@edit',$trab->id)}}'" class="btn btn-info">Editar</button>
 				</td> 
 				<td>
 					{!!Form::open(['route'=>['trabajo.destroy',$trab->id],'method'=>'DELETE'])!!}
