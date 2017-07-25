@@ -12,16 +12,17 @@
 			<table class="table table-striped table-bordered table-condenser table-hover">
 			<thead>
 				<th>Descripcion</th>
-				<th>Opciones</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
 			</thead>
-			@foreach($tipotrabajos as $tipTrab)
+			@foreach($tipotrabajos as $tipotrabajo)
 			<tr>
-				<td>{{$tipTrab->Descripcion}}</td>
+				<td>{{$tipotrabajo->Descripcion}}</td>
 				<td>
-					<a href="{{URL::action('TipoTrabajoController@edit',$tipTrab->id)}}"><button class="btn btn-info">Editar</button></a>
-
-					<a hhref="" data-target="#modal-delete-{{$tipTrab->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button> 
-
+					<button onclick="window.location.href='{{URL::action('TipoTrabajoController@edit',$tipotrabajo->id)}}'" class="btn btn-info">Editar</button>
+				</td>
+				<td>
+					<button data-target="#modal-delete-{{$tipotrabajo->id}}" data-toggle="modal" class="btn btn-danger">Eliminar</button>					
 				</td> 
 			</tr>
 			@include('tipoTrabajos.modal')

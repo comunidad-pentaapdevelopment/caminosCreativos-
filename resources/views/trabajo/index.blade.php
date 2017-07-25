@@ -38,7 +38,7 @@
 				<td>
 					<a href="{{URL::action('TrabajoController@edit',$trab->id)}}"><button class="btn btn-info">Editar</button></a>
 
-					<a hhref="" data-target="#modal-delete-{{$trab->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button> 
+					<a href="" data-target="#modal-delete-{{$trab->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button> 
 
 				</td> 
 			</tr>

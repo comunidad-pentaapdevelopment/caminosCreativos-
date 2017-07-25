@@ -85,21 +85,14 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header"></li>
-            
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>Administracion</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{url('tipotrabajo')}}"><i class="fa fa-circle-o"></i> Tipo de Trabajos</a></li>
-                <li><a href="{{url('publicidad')}}"><i class="fa fa-circle-o"></i> Publiciades</a></li>
-                <li><a href="{{url('trabajo')}}"><i class="fa fa-circle-o"></i> Trabajos</a></li>
-              </ul>
-            </li>
-                       
-            
+              <ul class="treeview">
+                <br>
+                <li><a href="{{url('tipotrabajo')}}"><i class="fa fa-filter" aria-hidden="true"></i> Tipo de Trabajos</a></li>
+                <br>
+                <li><a href="{{url('publicidad')}}"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Publiciades</a></li>
+                <br>
+                <li><a href="{{url('trabajo')}}"><i class="fa fa-briefcase" aria-hidden="true"></i> Trabajos</a></li>
+              </ul>                  
           </ul>
         </section>
         <!-- /.sidebar -->

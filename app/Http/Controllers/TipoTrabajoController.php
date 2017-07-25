@@ -5,7 +5,10 @@ use Illuminate\Http\Request;
 
 use Caminos\Http\Requests;
 use Caminos\TipoTrabajo;
+
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use Caminos\Http\Requests\TipoTrabajoFormRequest;
 use DB;
 
@@ -20,7 +23,7 @@ class TipoTrabajoController extends Controller
     		$query=trim($request->get('searchText'));
     		$tipoTrabajos=DB::table('tipotrabajos')
     		->where('Descripcion','LIKE','%'.$query.'%')
-    		->where('Estado','=',1)
+    		->where('Estado','=','ACTIVO')
     		->orderBy('id','desc')
     		->paginate(7);
     		return view('tipoTrabajos.index',["tipotrabajos"=>$tipoTrabajos,"searchText"=>$query]);
@@ -37,7 +40,7 @@ class TipoTrabajoController extends Controller
     {
     	$tipotrabajo=new TipoTrabajo;
     	$tipotrabajo->Descripcion=$request->get('Descripcion');
-    	$tipotrabajo->Estado=1;
+    	$tipotrabajo->Estado='ACTIVO';
 
     	$tipotrabajo->save();
     	return Redirect::to('tipotrabajo');
@@ -63,13 +66,15 @@ class TipoTrabajoController extends Controller
     	$tipotrabajo=TipoTrabajo::findOrFail($id);
     	$tipotrabajo->Descripcion=$request->get('Descripcion');
     	$tipotrabajo->update();
-    return Redirect::to('tipotrabajo');
+        return Redirect::to('tipotrabajo');
     }
 
     public function destroy($id)
     {
-    	$tipotrabajo=TipoTrabajo::findOrFail($id);
-    	$tipotrabajo->Estado=0;
-    	$tipotrabajo->update();
-    	return Redirect::to('tipotrabajo');
-    }}
+    	  // $tipotrabajo=TipoTrabajo::findOrFail($id);
+    	  // $tipotrabajo->Estado='INACTIVO';
+    	  // $tipotrabajo->update();
+    	   // return Redirect::to('tipotrabajo');   
+        
+    }
+}
