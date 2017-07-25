@@ -17,7 +17,8 @@
 				<th>Fecha</th>
 				<th>Imagen</th>
 				<th>Audio</th>
-				<th>Opciones</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
 			</thead>
 			@foreach($trabajos as $trab)
 			<tr>
@@ -36,11 +37,13 @@
 					</audio>
 				</td>
 				<td>
-					<a href="{{URL::action('TrabajoController@edit',$trab->id)}}"><button class="btn btn-info">Editar</button></a>
+					<button onclick="window.location.href='{{URL::action('TipoTrabajoController@edit',$trab->id)}}'" class="btn btn-info">Editar</button>
+				</td> 
+				<td>
 					{!!Form::open(['route'=>['trabajo.destroy',$trab->id],'method'=>'DELETE'])!!}
 					{!!Form::submit('Eliminar',['class'=> 'btn btn-danger','onclick'=>'return confirm("Estas Seguro?")'])!!}
 					{!!Form::close()!!}
-				</td> 
+				</td>
 			</tr>
 
 			@endforeach

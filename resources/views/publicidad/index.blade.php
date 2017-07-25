@@ -13,10 +13,10 @@
 			<thead>
 				<th>Descripcion</th>
 				<th>Imagen</th>
-				<th>Opciones</th>
+				<th>Editar</th>
+				<th>Eliminar</th>
 			</thead>
 				@foreach($publicidades as $pub)
-			
 			<tr>
 				<td>{{$pub->Descripcion}}</td>
 				<td>
@@ -24,11 +24,13 @@
 
 				</td>
 				<td>
-					<a href="{{URL::action('PublicidadController@edit',$pub->id)}}"><button class="btn btn-info">Editar</button></a>
+					<button onclick="window.location.href='{{URL::action('TipoTrabajoController@edit',$pub->id)}}'" class="btn btn-info">Editar</button>
+				</td>
+				<td>
 					{!!Form::open(['route'=>['publicidad.destroy',$pub->id],'method'=>'DELETE'])!!}
 					{!!Form::submit('Eliminar',['class'=> 'btn btn-danger','onclick'=>'return confirm("Estas Seguro?")'])!!}
 					{!!Form::close()!!}
-					</td>
+				</td>
 			
 			</tr>
 			@endforeach 
