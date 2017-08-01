@@ -65,6 +65,9 @@
                     <li class="page-scroll">
                         <a href="#trabajos">Trabajos</a>
                     </li>
+                    <li class="page-scroll">
+                        <a href="#encontranos">Encontranos</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -132,10 +135,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                    <p>Caminos creativos es una agencia y productora, que trabaja a nivel nacional con distintas marcas. Desde la producción hasta la ubicación de su marca, negocio u empresa en el mercado, trabajamos con medios de todo el país, graficos, radios, Tv , web, entre otros.</p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                    <p>Un staff de creativos, productores, diseñadores y musicos, con ideas de cada sector puestos en su marca, negocio u empresa. Si esta pensando en hacer publicidad no dude en consultarnos!</p>
                 </div>            </div>
         </div>
     </section>
@@ -194,7 +197,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center">
+    <footer class="text-center" id="encontranos">
         <div class="footer-above">
             <div class="container">
                 <div class="row">
