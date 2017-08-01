@@ -184,7 +184,7 @@
             </table>
             </div>
             
-            {{$trabajos->render()}}
+            {{$trabajos->fragment('trabajos')->links()}}
         </div>
 
     </div>
@@ -230,7 +230,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Pentapp-Development
+                       &reg; Pentapp-Development
                     </div>
                 </div>
             </div>
